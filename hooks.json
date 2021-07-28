@@ -1,0 +1,40 @@
+[
+    {
+        "id": "scalr-webhook",
+        "execute-command": "/root/slack.sh",
+        "command-working-directory": "/root",
+        "include-command-output-in-response": true,
+        "pass-environment-to-command": [
+            {
+                "envname": "EVENT_NAME",
+                "source": "payload",
+                "name": "event_name"
+            },
+            {
+                "envname": "workspace_name",
+                "source": "payload",
+                "name": "workspace.name"
+            },
+            {
+                "envname": "URL",
+                "source": "payload",
+                "name": "workspace.url"
+            },
+            {
+                "envname": "STAT",
+                "source": "payload",
+                "name": "run.status"
+            },
+            {
+                "envname": "dat",
+                "source": "payload",
+                "name": "run.message"
+            },
+            {
+                "envname": "user",
+                "source": "payload",
+                "name": "run.created_by.username"
+            }
+        ]
+    }
+]
